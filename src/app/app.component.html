@@ -1,0 +1,244 @@
+
+<div class="container">
+  <div class="row text-center mt-4">
+
+  </div>
+  <div class="row text-center mt-5">
+    <div class="col">
+      <h2>CRUD factura</h2>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-2">
+      <label for="txtId" class="from-label">ID</label>
+      <input type="number" name="id" id="txtId" class="form-control" [(ngModel)]="factura.IDFACTURA" >
+    </div>
+    <div class="col-md-4">
+      <label for="txtNombre" class="from-label">IDPRODUCTO</label>
+      <input type="number" name="id" id="txtNombre" class="form-control" [(ngModel)]="factura.IDPRODUCTO">
+    </div>
+    <div class="col-md-2">
+      <label for="txtEdad" class="from-label">IDPRODUCTO</label>
+      <input type="number" name="id" id="txtEdad" class="form-control" [(ngModel)]="factura.IDSUCURSAL">
+    </div>
+    <div class="col-md-4">
+      <label for="txtDesc" class="from-label">IDSUCURSAL</label>
+      <input type="number" name="id" id="txtDesc" class="form-control" [(ngModel)]="factura.IDSUCURSAL">
+    </div>
+  </div>
+  <div class="col-md-2">
+    <label for="txtId" class="from-label">MONTO</label>
+    <input type="number" name="id" id="txtId" class="form-control" [(ngModel)]="factura.MONTO" disabled="true">
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <button class="btn btn-success" type="button" (click)="onAddFactura(factura)">Agregar</button>
+      <button class="btn btn-warning m-2" type="button" (click)="onUpdateFactura(factura)">Modificar</button>
+      <button class="btn btn-danger" type="button" (click)="onDeleteFactura(factura.IDFACTURA)">Eliminar</button>
+      <button class="btn btn-primary m-2" type="button" (click)="clear()">Limpiar</button>
+    </div>
+    
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <table id="dtMascota" class="table table-striped" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Seleccionar</th>
+            <th>IDFACTURA</th>
+            <th>IDCLIENTE</th>
+            <th>IDPRODUCTO</th>
+            <th>IDSUCURSAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of datatable">
+            <td><input type="button" value="Seleccionar" (click)="onSetData(item)"></td>
+            <td> {{ item.IDFACTURA }} </td>
+            <td>{{ item.IDCLIENTE }}</td>
+            <td>{{ item.IDPRODUCTO }}</td>
+            <td>{{ item.IDSUCURSAL }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+  <div class="row text-center mt-5">
+    <div class="col">
+      <h2>CRUD Cliente</h2>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-2">
+      <label for="txtId" class="from-label">IDCLIENTE</label>
+      <input type="number" name="id" id="txtId" class="form-control" [(ngModel)]="cliente.IDCLIENTE" >
+    </div>
+    <div class="col-md-4">
+      <label for="txtNombre" class="from-label">NOMBRECLI</label>
+      <input type="number" name="id" id="txtNombre" class="form-control" [(ngModel)]="cliente.NOMBRECLI">
+    </div>
+    <div class="col-md-2">
+      <label for="txtEdad" class="from-label">EDAD</label>
+      <input type="number" name="id" id="txtEdad" class="form-control" [(ngModel)]="cliente.EDAD">
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col">
+      <button class="btn btn-success" type="button" (click)="onAddCliente(cliente)">Agregar</button>
+      <button class="btn btn-warning m-2" type="button" (click)="onUpdateCliente(cliente)">Modificar</button>
+      <button class="btn btn-danger" type="button" (click)="onDeleteCliente(factura.IDFACTURA)">Eliminar</button>
+      <button class="btn btn-primary m-2" type="button" (click)="clear()">Limpiar</button>
+    </div>
+    
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      <table id="dtMascota" class="table table-striped" style="width: 100%;">
+        <thead>
+          <tr>
+            <th>Seleccionar</th>
+            <th>IDCLIENTE</th>
+            <th>NOMBRECLI</th>
+            <th>EDAD</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of datatable2">
+            <td><input type="button" value="Seleccionar" (click)="onSetData2(item)"></td>
+            <td> {{ item.IDCLIENTE }} </td>
+            <td>{{ item.NOMBRECLI }}</td>
+            <td>{{ item.EDAD }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+    
+    <div class="row text-center mt-5">
+      <div class="col">
+        <h2>CRUD Productos</h2>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-2">
+        <label for="txtId" class="from-label">IDCLIENTE</label>
+        <input type="number" name="id" id="txtId" class="form-control" [(ngModel)]="producto.IDPRODUCTO" >
+      </div>
+      <div class="col-md-4">
+        <label for="txtNombre" class="from-label">NOMBREPRODUCTO</label>
+        <input type="number" name="id" id="txtNombre" class="form-control" [(ngModel)]="producto.NOMBREPRODUCTO">
+      </div>
+      <div class="col-md-2">
+        <label for="txtEdad" class="from-label">PRECIOPRODUCTO</label>
+        <input type="number" name="id" id="txtEdad" class="form-control" [(ngModel)]="producto.PRECIOPRODUCTO">
+      </div>
+    </div>
+  
+    <div class="row mt-5">
+      <div class="col">
+        <button class="btn btn-success" type="button" (click)="onAddProducto(producto)">Agregar</button>
+        <button class="btn btn-warning m-2" type="button" (click)="onUpdateProducto(producto)">Modificar</button>
+        <button class="btn btn-danger" type="button" (click)="onDeleteProducto(producto.IDPRODUCTO)">Eliminar</button>
+        <button class="btn btn-primary m-2" type="button" (click)="clear()">Limpiar</button>
+      </div>
+      
+    </div>
+    <div class="row mt-5">
+      <div class="col">
+        <table id="dtMascota" class="table table-striped" style="width: 100%;">
+          <thead>
+            <tr>
+              <th>Seleccionar</th>
+              <th>IDPRODUCTO</th>
+              <th>NOMBREPRODUCTO</th>
+              <th>PRECIOPRODUCTO</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of datatable3">
+              <td><input type="button" value="Seleccionar" (click)="onSetData3(item)"></td>
+              <td> {{ item.IDPRODUCTO }} </td>
+              <td>{{ item.NOMBREPRODUCTO }}</td>
+              <td>{{ item.PRECIOPRODUCTO }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+
+
+
+      <div class="row text-center mt-5">
+        <div class="col">
+          <h2>CRUD sucursal</h2>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-2">
+          <label for="txtId" class="from-label">IDCLIENTE</label>
+          <input type="number" name="id" id="txtId" class="form-control" [(ngModel)]="sucursal.IDSUCURSAL" >
+        </div>
+        <div class="col-md-4">
+          <label for="txtNombre" class="from-label">NOMBREPRODUCTO</label>
+          <input type="number" name="id" id="txtNombre" class="form-control" [(ngModel)]="sucursal.ADDRESSUC">
+        </div>
+        <div class="col-md-2">
+          <label for="txtEdad" class="from-label">PRECIOPRODUCTO</label>
+          <input type="number" name="id" id="txtEdad" class="form-control" [(ngModel)]="sucursal.NOMBRESUCURSAL">
+        </div>
+      </div>
+    
+      <div class="row mt-5">
+        <div class="col">
+          <button class="btn btn-success" type="button" (click)="onAddSucursal(sucursal)">Agregar</button>
+          <button class="btn btn-warning m-2" type="button" (click)="onUpdateSucursal(sucursal)">Modificar</button>
+          <button class="btn btn-danger" type="button" (click)="onDeleteSucursal(sucursal.IDSUCURSAL)">Eliminar</button>
+          <button class="btn btn-primary m-2" type="button" (click)="clear()">Limpiar</button>
+        </div>
+        
+      </div>
+      <div class="row mt-5">
+        <div class="col">
+          <table id="dtMascota" class="table table-striped" style="width: 100%;">
+            <thead>
+              <tr>
+                <th>Seleccionar</th>
+                <th>IDSUCURSAL</th>
+                <th>ADDRESSUC</th>
+                <th>NOMBRESUCURSAL</th>
+    
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of datatable4">
+                <td><input type="button" value="Seleccionar" (click)="onSetData4(item)"></td>
+                <td> {{ item.IDSUCURSAL }} </td>
+                <td>{{ item.ADDRESSUC }}</td>
+                <td>{{ item.NOMBRESUCURSAL }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+  
+</div>
+
